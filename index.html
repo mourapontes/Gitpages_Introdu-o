@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publicando Apps Web com GitHub Pages</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #f0f2f5, #e0eafc);
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .slide {
+      display: none;
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-top: 40px;
+    }
+    .slide.active {
+      display: block;
+    }
+    .nav {
+      text-align: center;
+      margin: 30px 0;
+    }
+    button {
+      padding: 12px 24px;
+      margin: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: white;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    ul, ol {
+      text-align: left;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+    .quiz {
+      display: none;
+    }
+    .question {
+      font-size: 1.2rem;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+    .option {
+      display: block;
+      margin: 8px auto;
+      padding: 10px;
+      font-size: 1rem;
+      width: 90%;
+      max-width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #003366;
+      color: white;
+      transition: background 0.3s;
+    }
+    .option:hover {
+      background: #002244;
+    }
+    .option.selected {
+      outline: 3px solid #ffa500;
+    }
+    .option.correct {
+      background-color: #28a745 !important;
+      color: white;
+    }
+    .option.incorrect {
+      background-color: #dc3545 !important;
+      color: white;
+    }
+    #finalizar {
+      margin-top: 30px;
+      background-color: #28a745;
+    }
+    #finalizar:hover {
+      background-color: #218838;
+    }
+    code {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px;
+      background: #eef1f5;
+      border-radius: 8px;
+      font-family: monospace;
+    }
+    @media (max-width: 600px) {
+      .slide {
+        padding: 20px 10px;
+        margin-top: 20px;
+      }
+      h1, h2 {
+        font-size: 1.4rem;
+      }
+      button {
+        font-size: 0.9rem;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide active">
+    <h1>O que é o GitHub Pages?</h1>
+    <p>Uma ferramenta gratuita para transformar seu repositório GitHub em um site acessível online!</p>
+  </div>
+
+  <div class="slide">
+    <h2>Pré-requisitos</h2>
+    <ul>
+      <li>Conta no GitHub</li>
+      <li>Repositório com seu app web (HTML, CSS, JS)</li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>Passo 1: Criar um repositório</h2>
+    <p>Crie um novo repositório no GitHub com o nome do seu projeto.</p>
+  </div>
+
+  <div class="slide">
+    <h2>Passo 2: Subir arquivos</h2>
+    <p>Faça upload dos arquivos do seu site (index.html, etc) para o repositório.</p>
+  </div>
+
+  <div class="slide">
+    <h2>Passo 3: Acessar configurações</h2>
+    <p>Vá até o repositório, clique em <strong>Settings</strong> &gt; <strong>Pages</strong>.</p>
+  </div>
+
+  <div class="slide">
+    <h2>Passo 4: Ativar o GitHub Pages</h2>
+    <p>Escolha a branch (geralmente <code>main</code>) e clique em <strong>Save</strong>.</p>
+  </div>
+
+  <div class="slide">
+    <h2>Passo 5: Pronto!</h2>
+    <p>Seu site será publicado em:</p>
+    <code>https://seunome.github.io/nomedorepo</code>
+  </div>
+
+  <div class="slide">
+    <h2>Dicas úteis</h2>
+    <ul>
+      <li>Use <code>index.html</code> como página inicial</li>
+      <li>Evite usar caminhos absolutos ("/img")</li>
+      <li>Consulte a aba Actions se der erro</li>
+    </ul>
+  </div>
+
+  <div class="slide quiz">
+    <h2>Quiz Final</h2>
+    <div class="question">1. Qual arquivo deve ser a página inicial no GitHub Pages?</div>
+    <button class="option" data-correct="false">main.html</button>
+    <button class="option" data-correct="false">start.html</button>
+    <button class="option" data-correct="true">index.html</button>
+    <button class="option" data-correct="false">home.html</button>
+
+    <div class="question">2. Onde você ativa o GitHub Pages?</div>
+    <button class="option" data-correct="false">Na aba Issues</button>
+    <button class="option" data-correct="true">Na aba Settings</button>
+    <button class="option" data-correct="false">Na aba Code</button>
+    <button class="option" data-correct="false">Na aba Pull requests</button>
+
+    <div class="question">3. Qual é a URL padrão do seu site publicado?</div>
+    <button class="option" data-correct="false">https://github.com/meusite</button>
+    <button class="option" data-correct="false">https://pages.github.com/meusite</button>
+    <button class="option" data-correct="true">https://seunome.github.io/nomedorepo</button>
+    <button class="option" data-correct="false">https://meusite.github.io</button>
+
+    <button id="finalizar">Finalizar Quiz</button>
+  </div>
+
+  <div class="nav">
+    <button onclick="changeSlide(-1)">Anterior</button>
+    <button onclick="changeSlide(1)">Próximo</button>
+  </div>
+
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function changeSlide(n) {
+      slides[current].classList.remove('active');
+      current = (current + n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+    }
+
+    document.querySelectorAll('.option').forEach(opt => {
+      opt.addEventListener('click', function () {
+        const siblings = Array.from(this.parentNode.children).filter(e => e.classList.contains('option'));
+        siblings.forEach(s => s.classList.remove('selected'));
+        this.classList.add('selected');
+      });
+    });
+
+    document.getElementById('finalizar').addEventListener('click', () => {
+      const options = document.querySelectorAll('.quiz .option');
+      options.forEach(opt => {
+        if (opt.dataset.correct === "true") {
+          opt.classList.add('correct');
+        } else {
+          opt.classList.add('incorrect');
+        }
+        opt.disabled = true;
+      });
+    });
+  </script>
+
+</body>
+</html>
